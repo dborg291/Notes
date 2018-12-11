@@ -237,19 +237,46 @@ Assume the following code is executed:
         O(n)
 
 10. Here is a binary tree:
+                 |----------K----------|
+          |------H------|       |------G------|
+          B------|      L       A      |------J------|
+                 N                     E             F
+
     A. What is the postorder traversal?
 
+        N B L H A E F J G K 
+
     B. What is the inorder traversal?
+
+        B N H L K A G E J F
+
 11. Here is a BST:
+
+
     A. Insert data 32.
+
+        * on strach paper *
+
     B. Insert data 60.
+
+        * on strach paper *
+
     C. Put *s near each node that is accessed when searching for data item 29.
+
+        * on strach paper *
+
     D. Delete value 21 using the next successor approach. Cross out any values that are updated and cross out edges and nodes that are removed.
+
+        * on strach paper *
 
 12. Consider the following graph. Do depth-first traversal of the following graph starting with node A. If there is a choice, select the earliest vertex 
     in alphabetical order. Show the parent, discover/finish times.
+    
+    * on strach paper *
 
 13. Do breadth-first search on the graph in #12. Start with node A. For each node, label the parent and its distance from A:
+
+    * on strach paper *
 
 14. We are about the insert the following elements into an empty 11-slot openaddress hash table with linear probing. What does the table look like after all items
     have been inserted?
@@ -259,13 +286,16 @@ Assume the following code is executed:
         Jam (hash value 22)
         Burger (hash value 11)
         Salad (hash value 82)
-        0 1 2 3 4 5 6 7 8 9 10
+        0       1       2       3       4       5       6       7       8       9       10
 
 15. Find the minimum spanning tree for the graph below using Kruskal’s Algorithm. Show the ordering of the edges and determine which edges are added to the MST
     and which edges are not.
 
-16. Provide a definition of a data structure. An example is not a definition, but may
-    help clarify the definition.
+
+
+16. Provide a definition of a data structure. An example is not a definition, but may help clarify the definition.
+
+    A data structure is way of storing data. It should be able to be search through, and maniupleted by insertion or delection of data.
 
 17. It is important to program defensively in C. Consider the following code snippets. Is it safe to execute as-is or should more defenses be added?
     int i = 0;
