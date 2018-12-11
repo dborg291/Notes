@@ -185,32 +185,56 @@ Assume the following code is executed:
     enqueue(q, 1); // statement 10
 
     A. Show the contents of the queue (both the array, its indices, and contents) after statement 2 has finished.
-
-    B. What is a? _____________
+       
+        array:
+        Indiceds: | 0 | 1 |
+        contents: | 4 | 7 |
+        
+    B. What is a? a = 4;
 
     C. Show the contents of the queue after statement 5 has finished.
 
+        array:
+        Indiceds: | 0 | 1 | 2 |
+        contents: | 7 | 9 | 3 |
+
     D. Show the contents of the queue after statement 10 has finished.
+
+        array:
+        Indiceds: | 0 | 1  |
+        contents: | 8 | 10 |
 
 8. I want to sort an array using quicksort. The array has the following values: 45 7 28 93 77 -3 18 101
    This version of quicksort always selects the first element in the array as the pivot element. Consider the contents of the array after the partition step is 
    called, but before recursive calls to quicksort are made. Give three different orderings of this array that could be valid after partition is called:
-        Ordering #1:
-        Ordering #2:
-        Ordering #3:
+        Ordering #1: 
+        Ordering #2: 
+        Ordering #3: 
 
 9. Give the worst-case O-notation for each of the following algorithms:
     A. mergesort, data is already known to be sorted
+        
+        O[nlog(n)]
 
     B. mergesort, data is not already sorted
 
+        O[nlog(n)]
+
     C. quicksort, data is already known to be sorted
+
+        O(n)
 
     D. quicksort, data is not already sorted but is randomized
 
+        O[nlog(n)]
+
     E. binary search tree lookup, tree is balanced
 
+        O[log(n)]
+
     F. binary search tree lookup, tree is not known to be balanced
+
+        O(n)
 
 10. Here is a binary tree:
     A. What is the postorder traversal?
