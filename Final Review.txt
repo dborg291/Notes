@@ -173,16 +173,16 @@ SINCE EXAM 3:
 7. Consider the queue.c and queue.h code from lab 7. Recall that this implementation is a circular queue. Assume the MAX_Q is set to 5.
 Assume the following code is executed:
     Queue q = initQueue();
-    enqueue(q, 4); // statement 1 // 4
-    enqueue(q, 7); // statement 2 // 4, 7
-    QueueData a = dequeue(q); // statement 3 // 4
-    enqueue(q, 9); // statement 4 // 4, 9
-    enqueue(q, 3); // statement 5 // 4, 9, 3
-    QueueData b = dequeue(q); // statement 6 // 4, 9
-    QueueData c = dequeue(q); // statement 7 // 4
-    enqueue(q, 8); // statement 8 // 4, 8
-    QueueData d = dequeue(q); // statement 9 // 4
-    enqueue(q, 1); // statement 10 // 4, 1
+    enqueue(q, 4); // statement 1
+    enqueue(q, 7); // statement 2
+    QueueData a = dequeue(q); // statement 3
+    enqueue(q, 9); // statement 4
+    enqueue(q, 3); // statement 5
+    QueueData b = dequeue(q); // statement 6
+    QueueData c = dequeue(q); // statement 7
+    enqueue(q, 8); // statement 8
+    QueueData d = dequeue(q); // statement 9
+    enqueue(q, 1); // statement 10
 
     A. Show the contents of the queue (both the array, its indices, and contents) after statement 2 has finished.
 
