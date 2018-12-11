@@ -97,14 +97,20 @@ SINCE EXAM 3:
    3, 8, and 4. When the function finishes, listPtr should contain a pointer to the Node containing 6.
 
     void deleteAlternates(Node ** listPtr) {
+        if(listPtr->next != NULL)
+        {
+            listPtr->next = listPtr->next->next;
+            free(listPtr->next);
+            deleteAlternates(listPtr->next);
+        }
     }
 
 3. Simplify the following O-notation expressions:
-    O(n8) + O(n18) = O(___________________)
-    O(n3 (log n)3) + O(n5) = O(_____________________)
-    O(n3) * O(n8) = O(_______________)
-    O(23) + O(317) = O(________________)
-    n5 + 3n5 + n7 + 8152 = O(_______________)
+    O(n^8) + O(n^18) = O(n^18)
+    O[n^3 (log n)^3] + O(n^5) = O(n^5)
+    O(n^3) * O(n^8) = O(n^11)
+    O(23) + O(3^17) = O(3^17)
+    n^5 + 3n^5 + n^7 + 8152 = O(n^7)
 
 4. Consider the definition for a binary tree (not necessarily a binary search tree).
     typedef struct TreeTag Tree;
@@ -121,6 +127,10 @@ SINCE EXAM 3:
     }
 
 5. Draw a binary search tree of height 3 that contains the following nodes: 10, 20, 30, 40, 50, 60. This is not necessarily the order in which they are inserted.
+
+                     |------40------|
+                |---20---|     |----60
+                10      30    50
 
 6. Consider the code below.
     #include <stdio.h>
@@ -144,34 +154,35 @@ SINCE EXAM 3:
     }
 
     int main(void) {
-        int n = count(3);
-        check(&n);
+        int n = count(3); //9
+        check(&n); 
         printf("%d\n", n);
         return EXIT_SUCCESS;
     }
 
     a. What does the code print?
+      
+        9
+        8
+        8
 
     b. What functions are on the program stack when alpha is executing? (leftmost is bottom of stack in answers below)
-        a. main
-        b. main, count
-        c. main, count, check
-        d. main, count, check, alpha
+        
         e. main, check, alpha
 
 7. Consider the queue.c and queue.h code from lab 7. Recall that this implementation is a circular queue. Assume the MAX_Q is set to 5.
 Assume the following code is executed:
     Queue q = initQueue();
-    enqueue(q, 4); // statement 1
-    enqueue(q, 7); // statement 2
-    QueueData a = dequeue(q); // statement 3
-    enqueue(q, 9); // statement 4
-    enqueue(q, 3); // statement 5
-    QueueData b = dequeue(q); // statement 6
-    QueueData c = dequeue(q); // statement 7
-    enqueue(q, 8); // statement 8
-    QueueData d = dequeue(q); // statement 9
-    enqueue(q, 1); // statement 10
+    enqueue(q, 4); // statement 1 // 4
+    enqueue(q, 7); // statement 2 // 4, 7
+    QueueData a = dequeue(q); // statement 3 // 4
+    enqueue(q, 9); // statement 4 // 4, 9
+    enqueue(q, 3); // statement 5 // 4, 9, 3
+    QueueData b = dequeue(q); // statement 6 // 4, 9
+    QueueData c = dequeue(q); // statement 7 // 4
+    enqueue(q, 8); // statement 8 // 4, 8
+    QueueData d = dequeue(q); // statement 9 // 4
+    enqueue(q, 1); // statement 10 // 4, 1
 
     A. Show the contents of the queue (both the array, its indices, and contents) after statement 2 has finished.
 
