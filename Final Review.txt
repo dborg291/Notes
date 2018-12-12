@@ -90,18 +90,20 @@ SINCE EXAM 3:
         int* arr2[3];
 
     D. A pointer-to-pointer to integer which points to slot 1 of arr2. This should be called p2.
-        int* p2 = &arr2[1];
+        int** p2 = &arr2[1];
 
 2. Consider the linked list code from lab 6. Write a function called deleteAlternates that deletes every other node in the linked list, beginning with
    the first. It should free each deleted node. If the linked list has items 3, 6, 8, 2, 4, 7, then the function should delete the items
    3, 8, and 4. When the function finishes, listPtr should contain a pointer to the Node containing 6.
 
     void deleteAlternates(Node ** listPtr) {
-        if(listPtr->next != NULL)
+        Node * node = *listPtr;
+        while(node->next != NULL)
         {
-            listPtr->next = listPtr->next->next;
-            free(listPtr->next);
-            deleteAlternates(listPtr->next);
+            node->next = node->next->next;
+            Node temp = node;
+            node = node->next;
+            free(temp);
         }
     }
 
@@ -109,7 +111,7 @@ SINCE EXAM 3:
     O(n^8) + O(n^18) = O(n^18)
     O[n^3 (log n)^3] + O(n^5) = O(n^5)
     O(n^3) * O(n^8) = O(n^11)
-    O(23) + O(3^17) = O(3^17)
+    O(23) + O(3^17) = O(1)
     n^5 + 3n^5 + n^7 + 8152 = O(n^7)
 
 4. Consider the definition for a binary tree (not necessarily a binary search tree).
@@ -194,15 +196,11 @@ Assume the following code is executed:
 
     C. Show the contents of the queue after statement 5 has finished.
 
-        array:
-        Indiceds: | 0 | 1 | 2 |
         contents: | 7 | 9 | 3 |
 
     D. Show the contents of the queue after statement 10 has finished.
 
-        array:
-        Indiceds: | 0 | 1  |
-        contents: | 8 | 10 |
+        contents: | 8 | 1 |
 
 8. I want to sort an array using quicksort. The array has the following values: 45 7 28 93 77 -3 18 101
    This version of quicksort always selects the first element in the array as the pivot element. Consider the contents of the array after the partition step is 
@@ -287,6 +285,7 @@ Assume the following code is executed:
         Burger (hash value 11)
         Salad (hash value 82)
         0       1       2       3       4       5       6       7       8       9       10
+        NULL    Burger  Jam     Salad   Ham     NULL    NULL    Jello   Butter  NULL    NULL
 
 15. Find the minimum spanning tree for the graph below using Kruskal’s Algorithm. Show the ordering of the edges and determine which edges are added to the MST
     and which edges are not.
@@ -304,9 +303,10 @@ Assume the following code is executed:
         i++;
     }
 
-    Safe? YES NO
-    If not safe, what defenses should be added?
+    Safe? YES
 
     printf(“%s”, argv[2]);
-    Safe? YES NO
+    Safe? NO
     If not safe, what defenses should be added?
+    if(argc > 2)
+        ~~~~~
