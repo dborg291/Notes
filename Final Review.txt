@@ -84,13 +84,13 @@ SINCE EXAM 3:
         int arr[10] = {0};
     
     B. A pointer to an integer called p1. It should point to slot 6 of arr.
-        int* p1 = arr[6];
+        int* p1 = &arr[6];
 
     C. An array than contains 3 pointers to integers, each initialized to null. This should be called arr2.
-        int* arr2 = {NULL};
+        int* arr2[3];
 
     D. A pointer-to-pointer to integer which points to slot 1 of arr2. This should be called p2.
-        int* p2 = arr2[2];
+        int* p2 = &arr2[1];
 
 2. Consider the linked list code from lab 6. Write a function called deleteAlternates that deletes every other node in the linked list, beginning with
    the first. It should free each deleted node. If the linked list has items 3, 6, 8, 2, 4, 7, then the function should delete the items
